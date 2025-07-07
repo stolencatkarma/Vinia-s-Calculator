@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoE Divination Card Profit Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Path of Exile Divination Card Profit Calculator</h1>
+    </header>
+    <main>
+        <div class="calculator">
+            <div class="input-section">
+                <h2>Card Information</h2>
+                <label for="card-name">Card Name:</label>
+                <input type="text" id="card-name" placeholder="e.g., Vinia's Token">
+
+                <label for="stack-size">Cards needed for turn-in:</label>
+                <input type="number" id="stack-size" value="5">
+
+                <label for="reward-quantity">Reward quantity:</label>
+                <input type="number" id="reward-quantity" value="10">
+            </div>
+
+            <div class="input-section">
+                <h2>Market Prices (in Chaos Orbs)</h2>
+                <label for="card-price-bulk">Price for a bulk of cards:</label>
+                <input type="number" id="card-price-bulk" value="50">
+                <label for="card-quantity-bulk">Number of cards in bulk:</label>
+                <input type="number" id="card-quantity-bulk" value="35">
+
+                <label for="item-price">Price per reward item:</label>
+                <input type="number" id="item-price" value="3">
+            </div>
+
+            <button id="calculate-btn">Calculate</button>
+
+            <div id="results" class="results-section">
+                <h2>Results</h2>
+                <p id="result-text"></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Data from <a href="https://poe.how/economy/divination-cards" target="_blank">poe.how</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
