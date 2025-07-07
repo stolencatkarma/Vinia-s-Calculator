@@ -10,9 +10,10 @@ This is a web application for calculating profit margins when comparing divinati
     *   **Cards needed for turn-in:** The stack size of the card.
     *   **Reward quantity:** How many of the reward item you get.
 3.  **Enter Market Prices:**
-    *   **Price for a bulk of cards:** The price in Chaos Orbs for a set number of cards.
+    *   **Price for a bulk of cards:** Enter the price and select the currency (Chaos, Divine, Exalted).
     *   **Number of cards in bulk:** The quantity of cards in the bulk purchase.
-    *   **Price per reward item:** The price in Chaos Orbs for a single reward item.
+    *   **Price per reward item:** Enter the price and select the currency (Chaos, Divine, Exalted).
+    *   **Conversion rates:** Enter the current Divine:Chaos and Exalted:Chaos rates for accurate conversion.
 4.  **Calculate:** Click the "Calculate" button to see the results.
 5.  **View Results:** The application will show you the cost per reward item if you buy the cards versus buying the item directly, and it will tell you which option is cheaper.
 

@@ -84,15 +84,31 @@ function calculateProfit() {
     const cardQuantityBulk = parseFloat(document.getElementById('card-quantity-bulk').value);
     const itemPrice = parseFloat(document.getElementById('item-price').value);
 
+    // Currency selectors
+    const cardBulkCurrency = document.getElementById('card-price-bulk-currency').value;
+    const itemPriceCurrency = document.getElementById('item-price-currency').value;
+    const divineToChaos = parseFloat(document.getElementById('divine-to-chaos').value);
+    const exaltedToChaos = parseFloat(document.getElementById('exalted-to-chaos').value);
+
+    // Helper to convert to chaos
+    function toChaos(amount, currency) {
+        if (currency === 'chaos') return amount;
+        if (currency === 'divine') return amount * divineToChaos;
+        if (currency === 'exalted') return amount * exaltedToChaos;
+        return amount;
+    }
+
     // Calculations
-    const pricePerCard = cardPriceBulk / cardQuantityBulk;
+    const pricePerCard = toChaos(cardPriceBulk, cardBulkCurrency) / cardQuantityBulk;
     const costViaCards = (pricePerCard * stackSize) / rewardQuantity;
-    const costViaDirectBuy = itemPrice;
+    const costViaDirectBuy = toChaos(itemPrice, itemPriceCurrency);
 
     // Display Results
     const resultText = document.getElementById('result-text');
-    let result = `Cost per reward item via cards: ${costViaCards.toFixed(2)} Chaos<br>`;
-    result += `Cost per reward item via direct purchase: ${costViaDirectBuy.toFixed(2)} Chaos<br><br>`;
+    let result = `Cost per reward item via cards: ${costViaCards.toFixed(2)} Chaos`;
+    result += ` (Bulk price in ${cardBulkCurrency.charAt(0).toUpperCase() + cardBulkCurrency.slice(1)}: ${cardPriceBulk})<br>`;
+    result += `Cost per reward item via direct purchase: ${costViaDirectBuy.toFixed(2)} Chaos`;
+    result += ` (Item price in ${itemPriceCurrency.charAt(0).toUpperCase() + itemPriceCurrency.slice(1)}: ${itemPrice})<br><br>`;
 
     if (costViaCards < costViaDirectBuy) {
         result += '<strong style="color: #4CAF50;">Buying cards is cheaper.</strong>';

@@ -32,12 +32,32 @@
             <div class="input-section">
                 <h2>Market Prices (in Chaos Orbs)</h2>
                 <label for="card-price-bulk">Price for a bulk of cards:</label>
-                <input type="number" id="card-price-bulk" value="50">
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <input type="number" id="card-price-bulk" value="50">
+                    <select id="card-price-bulk-currency">
+                        <option value="chaos">Chaos</option>
+                        <option value="divine">Divine</option>
+                        <option value="exalted">Exalted</option>
+                    </select>
+                </div>
                 <label for="card-quantity-bulk">Number of cards in bulk:</label>
                 <input type="number" id="card-quantity-bulk" value="35">
 
                 <label for="item-price">Price per reward item:</label>
-                <input type="number" id="item-price" value="3">
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <input type="number" id="item-price" value="3">
+                    <select id="item-price-currency">
+                        <option value="chaos">Chaos</option>
+                        <option value="divine">Divine</option>
+                        <option value="exalted">Exalted</option>
+                    </select>
+                </div>
+                <div class="conversion-section">
+                    <label for="divine-to-chaos">Divine : Chaos rate</label>
+                    <input type="number" id="divine-to-chaos" value="220" min="0" step="any">
+                    <label for="exalted-to-chaos">Exalted : Chaos rate</label>
+                    <input type="number" id="exalted-to-chaos" value="90" min="0" step="any">
+                </div>
             </div>
 
             <button id="calculate-btn">Calculate</button>
